@@ -1,6 +1,6 @@
 server:
   context-path: /
-  port: 8080
+  port: 80
   
 mapperLocationPattern: /mybatis/mapper/*.xml
 
@@ -10,6 +10,11 @@ mybatis:
   - /mybatis/mapper/*.xml
 
 spring:
+  thymeleaf:
+    cache: false
+#国际化
+  messages:
+    basename: i18n.manager #对应国际化目录
   datasource:
     username: root
     password: 123456
@@ -33,4 +38,21 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-    
+# mapper
+mapper:
+  not-empty: false
+  identity: MYSQL
+  # pagehelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: "true"
+  support-methods-arguments: "true"
+  params: count=countSql
+  
+ftp:
+  ip: 192.168.31.109
+  port: 21
+  username: root
+  password: root
+  base-path: /var/ftp/www/images
+  imager-url: http://192.168.31.109/images

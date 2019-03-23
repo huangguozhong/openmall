@@ -19,5 +19,10 @@
 			<artifactId>openmall-manager-dao</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.openmall</groupId>
+			<artifactId>openmall-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

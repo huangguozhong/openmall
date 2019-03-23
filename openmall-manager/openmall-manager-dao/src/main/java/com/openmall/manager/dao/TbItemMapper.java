@@ -1,9 +1,11 @@
 package com.openmall.manager.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.openmall.manager.pojo.TbItem;
 import com.openmall.manager.pojo.TbItemExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface TbItemMapper {
     int countByExample(TbItemExample example);

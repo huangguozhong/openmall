@@ -1,0 +1,60 @@
+server:
+  context-path: /
+  port: 8888
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations:
+  - /mybatis/mapper/*.xml
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.31.244:3306/tataoDB01?useUnicode=true&characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    
+  redis:
+    host: 192.168.31.244
+    port: 6379
+   # password: root
+    timeout: 1000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+    
+# mapper
+mapper:
+  not-empty: false
+  identity: MYSQL
+  # pagehelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: "true"
+  support-methods-arguments: "true"
+  params: count=countSql
+  
+redisKey:
+  content-key: INDEX_CONTENT_REDIS_KEY
+  item-key: REDIS_ITEM_KEY
+  item-expire: 86400

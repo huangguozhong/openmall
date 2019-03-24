@@ -96,5 +96,6 @@
 	<modules>
 		<module>openmall-common</module>
 		<module>openmall-manager</module>
+		<module>openmall-rest</module>
 	</modules>
 </project>
